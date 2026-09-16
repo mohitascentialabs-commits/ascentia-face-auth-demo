@@ -139,12 +139,18 @@ export function App() {
   return (
     <div className="page">
       <main className="card">
-        <p className="eyebrow">Face Auth · Mendix integration sample</p>
-        <h1 className="title">Host page stand-in</h1>
+        <img
+          className="logo "
+          src="/brand/ascentia-labs-logo.png"
+          alt="Ascentia Labs"
+          width={506}
+          height={84}
+        />
+        {/* <p className="eyebrow">Face authentication</p> */}
+        <h1 className="title">Sign in</h1>
         <p className="copy">
-          Mendix: Employee ID + Authenticate only. If not enrolled, SDK opens a
-          choice overlay — Employee Register (Path A, pending approval) or Admin
-          Kiosk Login (Path B, plant admin enrolls workers with fresh capture).
+          Enter your Employee ID and authenticate. If you are not enrolled,
+          register for approval or ask an admin to enroll you at the kiosk.
         </p>
 
         <form className="form" onSubmit={onAuthenticate}>
@@ -199,7 +205,7 @@ export function App() {
 
         <p className="status">{status}</p>
 
-        <section className="integration">
+        {/* <section className="integration">
           <p className="integration-title">Mendix wiring with custom API base URL (reference)</p>
           <pre className="integration-code">{`import { createFaceAuthSDK } from "@ascentia/face-auth-sdk";
 
@@ -217,7 +223,7 @@ if (outcome.outcome === "authenticated") {
   // Path B — admin finished batch enroll at kiosk
 }
 await sdk.destroy();`}</pre>
-        </section>
+        </section> */}
       </main>
     </div>
   );
