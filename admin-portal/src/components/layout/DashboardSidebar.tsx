@@ -591,9 +591,9 @@ export function DashboardSidebar({
             )}
           >
             <div className="min-w-0 flex-1">
-              {/* Mobile drawer — full wordmark, width-capped */}
+              {/* Mobile drawer only — wordmark scales to the open menu width */}
               <div className="lg:hidden">
-                <BrandLogo size="md" align="start" color="primary" />
+                <BrandLogo size="sm" align="start" className="w-full max-w-full" />
                 <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
                   Admin Portal
                 </p>
