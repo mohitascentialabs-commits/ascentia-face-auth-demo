@@ -66,6 +66,16 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
+  /*
+   * Wordmark ink is near-black, so it vanishes on the dark sidebar.
+   * invert + hue-rotate(180deg) flips lightness (black → white) and
+   * puts the blue mark back in the blue family. Login is outside
+   * .dashboard-ambient, so the light page keeps the original asset.
+   */
+  .dashboard-ambient .brand-logo {
+    filter: invert(1) hue-rotate(180deg) brightness(1.12) contrast(1.05);
+  }
+
   .dashboard-ambient {
     color-scheme: dark;
     background-color: #050b14;

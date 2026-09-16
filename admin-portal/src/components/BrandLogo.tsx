@@ -64,7 +64,7 @@ export function BrandLogo({
       width={isMark ? 98 : 506}
       height={isMark ? 80 : 84}
       decoding="async"
-      className={clsx(imgClass, isMark ? "shrink-0" : "min-w-0")}
+      className={clsx("brand-logo", imgClass, isMark ? "shrink-0" : "min-w-0")}
     />
   );
 

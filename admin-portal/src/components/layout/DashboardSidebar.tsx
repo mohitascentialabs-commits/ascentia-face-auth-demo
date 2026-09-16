@@ -567,7 +567,7 @@ export function DashboardSidebar({
 
       <aside
         className={clsx(
-          "fixed inset-y-3 left-3 z-50 flex flex-col rounded-[1.5rem] glass-panel transition-[width,transform] duration-300 ease-out lg:sticky lg:top-4 lg:z-auto lg:h-[calc(100vh-2rem)] lg:shrink-0 lg:translate-x-0",
+          "fixed inset-y-3 left-3 z-50 flex flex-col overflow-hidden rounded-[1.5rem] glass-panel transition-[width,transform] duration-300 ease-out lg:sticky lg:top-4 lg:z-auto lg:h-[calc(100vh-2rem)] lg:shrink-0 lg:translate-x-0",
           // Mobile always full width drawer
           "w-[15.5rem]",
           // Desktop collapse → icon rail
@@ -578,7 +578,7 @@ export function DashboardSidebar({
       >
         <div
           className={clsx(
-            "border-b border-border/80",
+            "border-b border-border/80 bg-primary/10",
             collapsed ? "px-2 py-3 lg:px-2" : "px-4 py-4",
           )}
         >
@@ -593,7 +593,7 @@ export function DashboardSidebar({
             <div className="min-w-0 flex-1">
               {/* Mobile drawer — full wordmark, width-capped */}
               <div className="lg:hidden">
-                <BrandLogo size="md" align="start" />
+                <BrandLogo size="md" align="start" color="primary" />
                 <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
                   Admin Portal
                 </p>
