@@ -578,39 +578,31 @@ export function DashboardSidebar({
       >
         <div
           className={clsx(
-            "border-b border-border/80 bg-primary/10",
-            collapsed ? "px-2 py-3 lg:px-2" : "px-4 py-4",
+            "border-b border-border/80",
+            collapsed ? "px-2 py-3" : "bg-primary/10 px-4 py-4",
           )}
         >
           <div
             className={clsx(
               "flex gap-2",
-              collapsed
-                ? "flex-col items-center lg:items-center"
-                : "items-start justify-between",
+              collapsed ? "justify-center" : "items-start justify-between",
             )}
           >
-            {mobileOpen || !collapsed ? (
+            {/* Logo only while the sidebar is open (mobile drawer or desktop expanded). */}
+            {!collapsed ? (
               <div className="min-w-0 flex-1">
-                {/* Open mobile drawer only — hidden while the menu is closed */}
-                {mobileOpen ? (
-                  <div className="lg:hidden">
-                    <BrandLogo size="sm" align="start" className="w-full max-w-full" />
-                    <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
-                      Admin Portal
-                    </p>
-                  </div>
-                ) : null}
-
-                {/* Expanded desktop sidebar only — no mark on the collapsed rail */}
-                {!collapsed ? (
-                  <div className="hidden min-w-0 lg:block">
-                    <BrandLogo size="md" align="start" />
-                    <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
-                      Admin Portal
-                    </p>
-                  </div>
-                ) : null}
+                <div className="lg:hidden">
+                  <BrandLogo size="sm" align="start" className="w-full max-w-full" />
+                  <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
+                    Admin Portal
+                  </p>
+                </div>
+                <div className="hidden min-w-0 lg:block">
+                  <BrandLogo size="md" align="start" />
+                  <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
+                    Admin Portal
+                  </p>
+                </div>
               </div>
             ) : null}
 

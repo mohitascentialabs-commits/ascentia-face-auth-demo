@@ -2,23 +2,23 @@ import type { CSSProperties } from "react";
 
 /** Brand palette — shared across SDK overlays and test harness. */
 export const BRAND = {
-  primary: "#00843D",
-  secondary: "#F5A400",
-  background: "#F7F8F6",
-  text: "#1F2937",
-  border: "#D9DED9",
+  primary: "#00aeef",
+  secondary: "#0b1f33",
+  background: "#ffffff",
+  text: "#0b1f33",
+  border: "#d5dbe3",
 } as const;
 
 export const BRAND_DERIVED = {
-  primaryHover: "#006B31",
-  primaryTint: "#E6F4EC",
-  secondaryTint: "#FFF8E6",
-  textMuted: "#6B7280",
-  textSubtle: "#9CA3AF",
-  panel: "#FFFFFF",
-  overlayBackdrop: "rgba(31, 41, 55, 0.52)",
-  focusRing: "rgba(0, 132, 61, 0.12)",
-  panelShadow: "0 24px 60px rgba(31, 41, 55, 0.14)",
+  primaryHover: "#0096cc",
+  primaryTint: "#e6f7fd",
+  secondaryTint: "#eef3f8",
+  textMuted: "#5c6778",
+  textSubtle: "#7b8796",
+  panel: "#ffffff",
+  overlayBackdrop: "rgba(11, 31, 51, 0.52)",
+  focusRing: "rgba(0, 174, 239, 0.28)",
+  panelShadow: "0 18px 44px rgba(11, 31, 51, 0.08)",
   fontFamily:
     '"IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif',
 } as const;
@@ -84,19 +84,19 @@ export const FEEDBACK_TOAST_PALETTE = {
   success: {
     accent: BRAND.primary,
     bg: BRAND_DERIVED.primaryTint,
-    border: "#9fd4b3",
+    border: "#9adcf5",
     icon: "✓",
   },
   warning: {
-    accent: "#9a6700",
+    accent: BRAND.secondary,
     bg: BRAND_DERIVED.secondaryTint,
-    border: "#f5d066",
+    border: "#c5d0dc",
     icon: "!",
   },
   error: {
-    accent: "#b42318",
-    bg: "#fef3f2",
-    border: "#fecdca",
+    accent: BRAND.secondary,
+    bg: BRAND_DERIVED.secondaryTint,
+    border: "#c5d0dc",
     icon: "✕",
   },
   info: {

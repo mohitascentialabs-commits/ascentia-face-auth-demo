@@ -85,7 +85,7 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: 16,
     overflow: "hidden",
     border: `3px solid ${BRAND.primary}`,
-    boxShadow: `0 12px 32px rgba(0, 132, 61, 0.18)`,
+    boxShadow: `0 12px 32px rgba(0, 174, 239, 0.18)`,
     background: "#000",
   },
   image: {

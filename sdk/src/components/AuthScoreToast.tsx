@@ -187,13 +187,13 @@ const styles: Record<string, CSSProperties> = {
   },
   hintWarning: {
     background: "rgba(255, 255, 255, 0.72)",
-    color: "#7a5c00",
-    border: `1px solid #f5d066`,
+    color: BRAND.secondary,
+    border: `1px solid ${BRAND.border}`,
   },
   hintError: {
     background: "rgba(255, 255, 255, 0.72)",
-    color: "#912018",
-    border: "1px solid #fecdca",
+    color: BRAND.secondary,
+    border: `1px solid ${BRAND.border}`,
   },
   details: {
     margin: "10px 0 0",

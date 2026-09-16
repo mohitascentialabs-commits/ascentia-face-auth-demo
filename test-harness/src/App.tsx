@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import {
   createFaceAuthSDK,
@@ -8,7 +8,6 @@ import {
   type MendixAuthenticateResult,
   type RegisterResult,
 } from "@ascentia/face-auth-sdk";
-import { BRAND, BRAND_DERIVED } from "./brandTheme";
 
 /**
  * Mendix integration stand-in.
@@ -138,23 +137,23 @@ export function App() {
   };
 
   return (
-    <div style={styles.page}>
-      <main style={styles.card}>
-        <p style={styles.eyebrow}>Face Auth · Mendix integration sample</p>
-        <h1 style={styles.title}>Host page stand-in</h1>
-        <p style={styles.copy}>
+    <div className="page">
+      <main className="card">
+        <p className="eyebrow">Face Auth · Mendix integration sample</p>
+        <h1 className="title">Host page stand-in</h1>
+        <p className="copy">
           Mendix: Employee ID + Authenticate only. If not enrolled, SDK opens a
           choice overlay — Employee Register (Path A, pending approval) or Admin
           Kiosk Login (Path B, plant admin enrolls workers with fresh capture).
         </p>
 
-        <form style={styles.form} onSubmit={onAuthenticate}>
-          <label style={styles.label} htmlFor="employee-id">
-            Employee ID <span style={styles.hint}>(from Mendix)</span>
+        <form className="form" onSubmit={onAuthenticate}>
+          <label className="label" htmlFor="employee-id">
+            Employee ID <span className="hint">(from Mendix)</span>
           </label>
           <input
             id="employee-id"
-            style={styles.input}
+            className="input"
             value={employeeId}
             onChange={(event) => setEmployeeId(event.target.value)}
             placeholder="e.g. EMP003 (employee, no enrollment)"
@@ -164,28 +163,22 @@ export function App() {
 
           <button
             type="submit"
-            style={{
-              ...styles.primary,
-              opacity: busy ? 0.7 : 1,
-              cursor: busy ? "wait" : "pointer",
-            }}
+            className="primary"
+            data-busy={busy ? "true" : undefined}
             disabled={busy}
           >
             {busy ? "Working…" : "Authenticate"}
           </button>
         </form>
 
-        <p style={styles.meta}>
+        <p className="meta">
           Capture phase: {phase}
           {apiBaseUrl ? ` · API ${apiBaseUrl}` : " · API not configured"}
         </p>
 
         {authResult && (
           <div
-            style={{
-              ...styles.resultBadge,
-              ...(authResult.authenticated ? styles.resultSuccess : styles.resultDenied),
-            }}
+            className={authResult.authenticated ? "toast toast-success" : "toast toast-denied"}
             role="status"
             aria-live="polite"
           >
@@ -197,25 +190,18 @@ export function App() {
         )}
 
         {registerResult && (
-          <div
-            style={{
-              ...styles.resultBadge,
-              ...styles.resultPending,
-            }}
-            role="status"
-            aria-live="polite"
-          >
+          <div className="toast" role="status" aria-live="polite">
             <strong>registration: {registerResult.status}</strong>
             <span>employeeId: {registerResult.employeeId}</span>
             <span>requestId: {registerResult.requestId}</span>
           </div>
         )}
 
-        <p style={styles.status}>{status}</p>
+        <p className="status">{status}</p>
 
-        <section style={styles.integrationBox}>
-          <p style={styles.integrationTitle}>Mendix wiring with custom API base URL (reference)</p>
-          <pre style={styles.integrationCode}>{`import { createFaceAuthSDK } from "@ascentia/face-auth-sdk";
+        <section className="integration">
+          <p className="integration-title">Mendix wiring with custom API base URL (reference)</p>
+          <pre className="integration-code">{`import { createFaceAuthSDK } from "@ascentia/face-auth-sdk";
 
 const sdk = createFaceAuthSDK({
   apiBaseUrl: "${apiBaseUrl ?? "https://face-auth-ascentia.onrender.com"}",
@@ -236,135 +222,3 @@ await sdk.destroy();`}</pre>
     </div>
   );
 }
-
-const styles: Record<string, CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    margin: 0,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 24,
-    boxSizing: "border-box",
-    fontFamily: BRAND_DERIVED.fontFamily,
-    background: `radial-gradient(circle at top left, ${BRAND_DERIVED.primaryTint} 0%, ${BRAND.background} 45%, ${BRAND.border} 100%)`,
-    color: BRAND.text,
-  },
-  card: {
-    width: "min(480px, 100%)",
-    display: "flex",
-    flexDirection: "column",
-    gap: 14,
-  },
-  eyebrow: {
-    margin: 0,
-    fontSize: 12,
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-    color: BRAND.primary,
-    fontWeight: 600,
-  },
-  title: {
-    margin: 0,
-    fontSize: 32,
-    lineHeight: 1.1,
-    fontWeight: 650,
-    color: BRAND.text,
-  },
-  copy: {
-    margin: 0,
-    fontSize: 15,
-    lineHeight: 1.5,
-    color: BRAND_DERIVED.textMuted,
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 10,
-    marginTop: 8,
-  },
-  label: {
-    fontSize: 13,
-    fontWeight: 600,
-    color: BRAND.text,
-  },
-  hint: {
-    fontWeight: 400,
-    color: BRAND_DERIVED.textMuted,
-  },
-  input: {
-    border: `1px solid ${BRAND.border}`,
-    borderRadius: 8,
-    padding: "12px 14px",
-    fontSize: 16,
-    background: BRAND_DERIVED.panel,
-    color: BRAND.text,
-  },
-  primary: {
-    border: "none",
-    borderRadius: 8,
-    padding: "12px 16px",
-    fontSize: 15,
-    fontWeight: 600,
-    background: BRAND.primary,
-    color: "#fff",
-  },
-  meta: {
-    margin: 0,
-    fontSize: 12,
-    color: BRAND_DERIVED.textMuted,
-    wordBreak: "break-all",
-  },
-  resultBadge: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 4,
-    padding: "12px 14px",
-    borderRadius: 8,
-    fontSize: 14,
-  },
-  resultSuccess: {
-    background: BRAND_DERIVED.primaryTint,
-    border: `1px solid ${BRAND.primary}`,
-    color: BRAND_DERIVED.primaryHover,
-  },
-  resultDenied: {
-    background: "#fdecea",
-    border: "1px solid #f5a8a0",
-    color: "#8a1f17",
-  },
-  resultPending: {
-    background: BRAND_DERIVED.secondaryTint,
-    border: `1px solid ${BRAND.secondary}`,
-    color: "#7a5c00",
-  },
-  status: {
-    margin: 0,
-    fontSize: 14,
-    color: BRAND_DERIVED.textMuted,
-    minHeight: 40,
-  },
-  integrationBox: {
-    marginTop: 4,
-    padding: "12px 14px",
-    borderRadius: 8,
-    background: BRAND.background,
-    border: `1px solid ${BRAND.border}`,
-  },
-  integrationTitle: {
-    margin: "0 0 8px",
-    fontSize: 12,
-    fontWeight: 600,
-    textTransform: "uppercase",
-    letterSpacing: "0.06em",
-    color: BRAND_DERIVED.textMuted,
-  },
-  integrationCode: {
-    margin: 0,
-    fontSize: 12,
-    lineHeight: 1.5,
-    overflowX: "auto",
-    fontFamily: "ui-monospace, monospace",
-    color: BRAND.text,
-  },
-};
