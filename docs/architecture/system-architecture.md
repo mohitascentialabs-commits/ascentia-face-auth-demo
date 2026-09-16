@@ -1,6 +1,6 @@
 # System Architecture
 
-Placeholder for Week 1 system architecture documentation.
+Placeholders for Week 1 system architecture documentation.
 
 Components:
 
