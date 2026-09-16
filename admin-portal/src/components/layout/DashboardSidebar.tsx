@@ -590,29 +590,29 @@ export function DashboardSidebar({
                 : "items-start justify-between",
             )}
           >
-            <div className="min-w-0 flex-1">
-              {/* Mobile drawer only — wordmark scales to the open menu width */}
-              <div className="lg:hidden">
-                <BrandLogo size="sm" align="start" className="w-full max-w-full" />
-                <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
-                  Admin Portal
-                </p>
-              </div>
+            {mobileOpen || !collapsed ? (
+              <div className="min-w-0 flex-1">
+                {/* Open mobile drawer only — hidden while the menu is closed */}
+                {mobileOpen ? (
+                  <div className="lg:hidden">
+                    <BrandLogo size="sm" align="start" className="w-full max-w-full" />
+                    <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
+                      Admin Portal
+                    </p>
+                  </div>
+                ) : null}
 
-              {/* Desktop expanded wordmark / collapsed chain mark */}
-              {!collapsed ? (
-                <div className="hidden min-w-0 lg:block">
-                  <BrandLogo size="md" align="start" />
-                  <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
-                    Admin Portal
-                  </p>
-                </div>
-              ) : (
-                <div className="hidden lg:flex lg:justify-center">
-                  <BrandLogo size="sm" variant="mark" />
-                </div>
-              )}
-            </div>
+                {/* Expanded desktop sidebar only — no mark on the collapsed rail */}
+                {!collapsed ? (
+                  <div className="hidden min-w-0 lg:block">
+                    <BrandLogo size="md" align="start" />
+                    <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary">
+                      Admin Portal
+                    </p>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
 
             <button
               type="button"
