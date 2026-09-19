@@ -3,21 +3,21 @@
 @theme {
   --font-sans: "IBM Plex Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
 
-  /* Ascentia Labs dashboard palette */
+  /* Ascentia Labs — light glass dashboard */
   --color-primary: #00aeef;
-  --color-secondary: #0b1f33;
-  --color-background: #050b14;
-  --color-surface: #0d1624;
-  --color-text: #ffffff;
-  --color-text-muted: #a7b0be;
-  --color-border: #1e2d42;
+  --color-secondary: #eef3f8;
+  --color-background: #f7faff;
+  --color-surface: #ffffff;
+  --color-text: #172033;
+  --color-text-muted: #526176;
+  --color-border: #d7e3f0;
 
   --color-brand-50: #e6f7fd;
   --color-brand-100: #c5eefb;
   --color-brand-600: #00aeef;
   --color-brand-700: #0096cc;
   --color-brand-800: #0078a3;
-  --color-ink: #ffffff;
+  --color-ink: #172033;
 }
 
 @layer base {
@@ -32,72 +32,72 @@
   }
 }
 
-/*
- * Login stays a white page. Tokens below restore readable navy text / light
- * fields without changing the dashboard palette.
- */
 @layer components {
   .login-screen {
     color-scheme: light;
-    --color-text: #0b1f33;
-    --color-text-muted: #5c6778;
+    --color-text: #172033;
+    --color-text-muted: #526176;
     --color-border: #d5dbe3;
-    --color-background: #f4f7fb;
+    --color-background: #f7faff;
     --color-surface: #ffffff;
+    --color-secondary: #0b1f33;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    background: rgba(13, 22, 36, 0.92);
-    border: 1px solid rgba(0, 174, 239, 0.12);
+    background: rgba(255, 255, 255, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.78);
     box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.28),
-      0 18px 44px rgba(0, 0, 0, 0.38);
+      0 1px 2px rgba(15, 23, 42, 0.03),
+      0 10px 28px rgba(15, 23, 42, 0.05);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+  }
+
+  .glass-panel-soft {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
 
-  .glass-panel-soft {
-    background: rgba(11, 31, 51, 0.72);
-    border: 1px solid rgba(167, 176, 190, 0.12);
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
-
-  /*
-   * Wordmark ink is near-black, so it vanishes on the dark sidebar.
-   * invert + hue-rotate(180deg) flips lightness (black → white) and
-   * puts the blue mark back in the blue family. Login is outside
-   * .dashboard-ambient, so the light page keeps the original asset.
-   */
-  .dashboard-ambient .brand-logo {
-    filter: invert(1) hue-rotate(180deg) brightness(1.12) contrast(1.05);
-  }
-
   .dashboard-ambient {
-    color-scheme: dark;
-    background-color: #050b14;
-    background-image:
-      radial-gradient(
-        ellipse 70% 50% at 8% 0%,
-        rgba(0, 174, 239, 0.14),
-        transparent 55%
-      ),
-      radial-gradient(
-        ellipse 55% 45% at 100% 100%,
-        rgba(11, 31, 51, 0.9),
-        transparent 50%
-      );
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color-scheme: light;
+    background-color: #f8fafc;
+    background-image: none;
+  }
+
+  .dashboard-bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .dashboard-bg-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .dashboard-shell {
+    position: relative;
+    z-index: 1;
   }
 
   .skeleton-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(13, 22, 36, 0.9) 0%,
-      rgba(30, 45, 66, 0.95) 50%,
-      rgba(13, 22, 36, 0.9) 100%
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(230, 241, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0.45) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s ease-in-out infinite;

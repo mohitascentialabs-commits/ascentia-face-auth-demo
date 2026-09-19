@@ -21,7 +21,7 @@ function ResultBadge({ result }: { result: AuthLogItem["result"] }) {
         "inline-flex rounded-full px-2 py-0.5 text-xs font-semibold",
         success
           ? "bg-primary/10 text-primary"
-          : "bg-red-950/40 text-red-400",
+          : "bg-red-50 text-red-600",
       )}
     >
       {success ? "Success" : "Failed"}

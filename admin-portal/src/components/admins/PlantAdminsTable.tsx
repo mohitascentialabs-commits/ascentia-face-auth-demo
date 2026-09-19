@@ -165,7 +165,7 @@ export function PlantAdminsTable({
                     spinnerTone="danger"
                     disabled={loading}
                     onClick={() => onRevoke(admin)}
-                    className="rounded-lg border border-red-500/40 bg-surface px-2.5 py-1.5 text-xs font-medium text-red-400 hover:bg-red-950/40"
+                    className="rounded-lg border border-red-200 bg-surface px-2.5 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
                   >
                     Ungrant
                   </LoadingButton>

@@ -56,7 +56,7 @@ export function DecisionDialog({
           />
         </label>
 
-        {error ? <p className="mt-2 text-sm text-red-400">{error}</p> : null}
+        {error ? <p className="mt-2 text-sm text-red-600">{error}</p> : null}
 
         <div className="mt-5 flex justify-end gap-3">
           <button

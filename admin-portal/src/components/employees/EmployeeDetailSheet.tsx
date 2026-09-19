@@ -150,7 +150,7 @@ export function EmployeeDetailSheet({
                 loadingLabel="Opening…"
                 spinnerTone="danger"
                 onClick={() => onRevoke(employee)}
-                className="min-h-11 w-full rounded-xl border border-red-500/40 bg-surface px-4 py-2.5 text-sm font-semibold text-red-400 hover:bg-red-950/40"
+                className="min-h-11 w-full rounded-xl border border-red-200 bg-surface px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50"
               >
                 Revoke employee
               </LoadingButton>

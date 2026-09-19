@@ -91,7 +91,7 @@ export function GrantAdminForm({
 
       {errorMessage ? (
         <p
-          className="mt-4 rounded-xl border border-red-500/40 bg-red-950/40 px-4 py-3 text-sm text-red-400"
+          className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600"
           role="alert"
         >
           {errorMessage}
@@ -124,7 +124,7 @@ export function GrantAdminForm({
         ) : null}
 
         {previewError ? (
-          <p className="rounded-xl border border-red-500/40 bg-red-950/40 px-3 py-2 text-sm text-red-400">
+          <p className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-600">
             {previewError}
           </p>
         ) : null}
@@ -172,7 +172,7 @@ export function GrantAdminForm({
             required
           />
           {confirmPassword && password !== confirmPassword ? (
-            <span className="text-xs font-normal text-red-400">
+            <span className="text-xs font-normal text-red-600">
               Passwords do not match.
             </span>
           ) : null}

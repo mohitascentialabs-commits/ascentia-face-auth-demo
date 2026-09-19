@@ -29,7 +29,7 @@ export function LoginForm({ busy, error, notice, onSubmit }: LoginFormProps) {
         {notice ? (
           <p
             role="status"
-            className="mb-6 rounded-lg border border-primary/25 bg-brand-50 px-3 py-2.5 text-center text-sm text-secondary"
+            className="mb-6 rounded-lg border border-primary/25 bg-brand-50 px-3 py-2.5 text-center text-sm text-text"
           >
             {notice}
           </p>

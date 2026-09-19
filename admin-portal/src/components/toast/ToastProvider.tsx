@@ -39,9 +39,9 @@ function toneStyles(tone: ToastTone): string {
     return "border-primary/30 bg-primary/15 text-primary";
   }
   if (tone === "info") {
-    return "border-primary/25 bg-secondary text-text";
+    return "border-border bg-secondary text-text";
   }
-  return "border-red-500/40 bg-red-950/40 text-red-300";
+  return "border-red-200 bg-red-50 text-red-700";
 }
 
 function toneLabel(tone: ToastTone): string {

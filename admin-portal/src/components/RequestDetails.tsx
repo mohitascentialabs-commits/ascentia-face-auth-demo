@@ -168,7 +168,7 @@ export function RequestDetails({
           spinnerTone="danger"
           disabled={busy && !rejecting}
           onClick={handleReject}
-          className="min-h-11 flex-1 rounded-xl border border-red-500/40 bg-surface px-4 py-2.5 text-sm font-semibold text-red-400 hover:bg-red-950/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-200 sm:flex-none sm:min-w-[8.5rem]"
+          className="min-h-11 flex-1 rounded-xl border border-red-200 bg-surface px-4 py-2.5 text-sm font-semibold text-red-600 hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-200 sm:flex-none sm:min-w-[8.5rem]"
         >
           Reject
         </LoadingButton>

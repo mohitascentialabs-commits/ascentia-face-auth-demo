@@ -92,7 +92,7 @@ export function PlantCatalogPanel({
 
       {error ? (
         <p
-          className="rounded-lg border border-red-500/40 bg-red-950/40 px-4 py-3 text-sm text-red-400"
+          className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600"
           role="alert"
         >
           {error}

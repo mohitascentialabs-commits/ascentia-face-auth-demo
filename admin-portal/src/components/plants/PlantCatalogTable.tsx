@@ -111,7 +111,7 @@ export function PlantCatalogTable({
                         className={clsx(
                           "rounded-lg border px-2.5 py-1.5 text-xs font-medium",
                           plant.isActive
-                            ? "border-red-500/40 bg-surface text-red-400 hover:bg-red-950/40"
+                            ? "border-red-200 bg-surface text-red-600 hover:bg-red-50"
                             : "border-primary/30 bg-surface text-primary hover:bg-primary/15",
                         )}
                       >

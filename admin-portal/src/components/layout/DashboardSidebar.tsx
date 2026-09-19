@@ -340,10 +340,10 @@ function AuditLogNav({
             style={{ top: flyoutPos.top, left: flyoutPos.left }}
           >
             <span
-              className="absolute top-1/2 -left-1.5 z-0 h-3 w-3 -translate-y-1/2 rotate-45 bg-secondary"
+              className="absolute top-1/2 -left-1.5 z-0 h-3 w-3 -translate-y-1/2 rotate-45 border border-border/80 bg-surface"
               aria-hidden
             />
-            <div className="relative z-10 min-w-[12.75rem] max-w-[min(16rem,calc(100vw-2rem))] overflow-hidden rounded-xl bg-secondary py-1.5 shadow-[0_16px_48px_rgba(0,0,0,0.45)] ring-1 ring-primary/20">
+            <div className="relative z-10 min-w-[12.75rem] max-w-[min(16rem,calc(100vw-2rem))] overflow-hidden rounded-xl border border-border/80 bg-surface py-1.5 shadow-[0_8px_30px_rgba(15,23,42,0.08)] ring-1 ring-primary/15">
               <ul className="flex flex-col">
                 {options.map((option) => {
                   const selected = activeTab === option.id;
@@ -356,8 +356,8 @@ function AuditLogNav({
                         className={clsx(
                           "flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold transition",
                           selected
-                            ? "bg-white/12 text-white"
-                            : "text-white/90 hover:bg-white/10 hover:text-white",
+                            ? "bg-primary/10 text-primary"
+                            : "text-text hover:bg-secondary hover:text-text",
                         )}
                       >
                         <span
@@ -391,8 +391,8 @@ function AuditLogNav({
           "flex w-full items-center rounded-xl text-left text-sm font-medium transition",
           collapsed ? "justify-center px-2 py-2.5" : "gap-3 px-3 py-2.5",
           parentActive || open
-            ? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(0,174,239,0.28)]"
-            : "text-text-muted hover:bg-white/5 hover:text-text",
+            ? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(0,174,239,0.22)]"
+            : "text-text-muted hover:bg-black/[0.04] hover:text-text",
         )}
       >
         <span
@@ -495,8 +495,8 @@ function NavButton({
         "flex w-full items-center rounded-xl text-left text-sm font-medium transition",
         collapsed ? "justify-center px-2 py-2.5" : "gap-3 px-3 py-2.5",
         active
-          ? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(0,174,239,0.28)]"
-          : "text-text-muted hover:bg-white/5 hover:text-text",
+          ? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(0,174,239,0.22)]"
+          : "text-text-muted hover:bg-black/[0.04] hover:text-text",
       )}
     >
       <span

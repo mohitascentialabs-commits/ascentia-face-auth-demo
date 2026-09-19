@@ -42,6 +42,7 @@ import {
   type DashboardTab,
   type SidebarNavItem,
 } from "./components/layout/DashboardSidebar";
+import { DashboardBackground } from "./components/layout/DashboardBackground";
 import { LoginForm } from "./components/LoginForm";
 import { PlantWorkspaceSelector } from "./components/PlantWorkspaceSelector";
 import { PlantCatalogPanel } from "./components/plants/PlantCatalogPanel";
@@ -289,7 +290,8 @@ export function App() {
   if (view === "bootstrap") {
     return (
       <main className="grid min-h-screen place-items-center dashboard-ambient">
-        <p className="text-sm text-text-muted">Loading admin session…</p>
+        <DashboardBackground />
+        <p className="dashboard-shell text-sm text-text-muted">Loading admin session…</p>
       </main>
     );
   }
@@ -313,7 +315,8 @@ export function App() {
 
   return (
     <div className="dashboard-ambient min-h-screen">
-      <div className="mx-auto flex min-h-screen max-w-[1600px] gap-4 p-3 lg:gap-5 lg:p-4 2xl:mx-0 2xl:max-w-none 2xl:w-full 2xl:gap-5 2xl:py-4 2xl:pl-3 2xl:pr-5">
+      <DashboardBackground />
+      <div className="dashboard-shell mx-auto flex min-h-screen max-w-[1600px] gap-4 p-3 lg:gap-5 lg:p-4 2xl:mx-0 2xl:max-w-none 2xl:w-full 2xl:gap-5 2xl:py-4 2xl:pl-3 2xl:pr-5">
         <DashboardSidebar
           items={navItems}
           auditMenuOptions={auditMenuOptions}
