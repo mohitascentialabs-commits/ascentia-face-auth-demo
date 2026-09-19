@@ -3,14 +3,14 @@
 @theme {
   --font-sans: "IBM Plex Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
 
-  /* Ascentia Labs — light glass dashboard */
+  /* Ascentia Labs — premium light glass dashboard */
   --color-primary: #00aeef;
-  --color-secondary: #eef3f8;
-  --color-background: #f7faff;
+  --color-secondary: #eef5fc;
+  --color-background: #f8fbff;
   --color-surface: #ffffff;
   --color-text: #172033;
   --color-text-muted: #526176;
-  --color-border: #d7e3f0;
+  --color-border: #d8e6f4;
 
   --color-brand-50: #e6f7fd;
   --color-brand-100: #c5eefb;
@@ -38,29 +38,32 @@
     --color-text: #172033;
     --color-text-muted: #526176;
     --color-border: #d5dbe3;
-    --color-background: #f7faff;
+    --color-background: #f8fbff;
     --color-surface: #ffffff;
     --color-secondary: #0b1f33;
   }
 }
 
 @layer utilities {
+  /* Enterprise glass — used by sidebar, header, and content shells */
   .glass-panel {
-    background: rgba(255, 255, 255, 0.62);
-    border: 1px solid rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(255, 255, 255, 0.82);
     box-shadow:
-      0 1px 2px rgba(15, 23, 42, 0.03),
-      0 10px 28px rgba(15, 23, 42, 0.05);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
+      0 0 0 1px rgba(0, 174, 239, 0.08),
+      0 10px 32px rgba(70, 120, 190, 0.1);
+    backdrop-filter: blur(20px) saturate(1.08);
+    -webkit-backdrop-filter: blur(20px) saturate(1.08);
   }
 
   .glass-panel-soft {
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+      0 0 0 1px rgba(0, 174, 239, 0.06),
+      0 8px 24px rgba(70, 120, 190, 0.08);
+    backdrop-filter: blur(16px) saturate(1.05);
+    -webkit-backdrop-filter: blur(16px) saturate(1.05);
   }
 
   .dashboard-ambient {
@@ -68,7 +71,7 @@
     overflow: hidden;
     isolation: isolate;
     color-scheme: light;
-    background-color: #f8fafc;
+    background-color: #f8fbff;
     background-image: none;
   }
 
@@ -95,9 +98,9 @@
   .skeleton-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.45) 0%,
-      rgba(230, 241, 255, 0.9) 50%,
-      rgba(255, 255, 255, 0.45) 100%
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(241, 247, 255, 0.95) 50%,
+      rgba(255, 255, 255, 0.5) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s ease-in-out infinite;

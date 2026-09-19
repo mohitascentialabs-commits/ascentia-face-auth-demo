@@ -183,7 +183,7 @@ export function GrantAdminForm({
           loading={busy}
           loadingLabel="Granting…"
           disabled={!canSubmit && !busy}
-          className="mt-1 min-h-11 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          className="mt-1 h-11 w-full rounded-lg bg-primary text-sm font-semibold text-white hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:bg-primary disabled:opacity-70"
         >
           Grant PLANT_ADMIN
         </LoadingButton>

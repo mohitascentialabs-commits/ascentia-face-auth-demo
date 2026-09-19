@@ -579,7 +579,7 @@ export function DashboardSidebar({
         <div
           className={clsx(
             "border-b border-border/80",
-            collapsed ? "px-2 py-3" : "bg-primary/10 px-4 py-4",
+            collapsed ? "px-2 py-3" : "px-4 py-4",
           )}
         >
           <div
@@ -701,7 +701,7 @@ export function DashboardSidebar({
             title={collapsed ? "Sign out" : undefined}
             aria-label="Sign out"
             className={clsx(
-              "mt-3 w-full rounded-xl border border-border/80 bg-surface text-sm font-medium text-text transition hover:bg-secondary",
+              "mt-3 w-full rounded-xl border border-border/80 bg-surface text-sm font-medium text-text transition hover:border-primary",
               collapsed
                 ? "grid h-10 place-items-center px-0"
                 : "px-3 py-2",
