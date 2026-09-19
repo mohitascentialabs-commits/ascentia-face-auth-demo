@@ -392,7 +392,7 @@ function AuditLogNav({
           collapsed ? "justify-center px-2 py-2.5" : "gap-3 px-3 py-2.5",
           parentActive || open
             ? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(0,174,239,0.22)]"
-            : "text-text-muted hover:bg-black/[0.04] hover:text-text",
+            : "text-text-muted hover:bg-[color-mix(in_srgb,var(--color-text)_5%,transparent)] hover:text-text",
         )}
       >
         <span
@@ -496,7 +496,7 @@ function NavButton({
         collapsed ? "justify-center px-2 py-2.5" : "gap-3 px-3 py-2.5",
         active
           ? "bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(0,174,239,0.22)]"
-          : "text-text-muted hover:bg-black/[0.04] hover:text-text",
+          : "text-text-muted hover:bg-[color-mix(in_srgb,var(--color-text)_5%,transparent)] hover:text-text",
       )}
     >
       <span
@@ -567,7 +567,7 @@ export function DashboardSidebar({
 
       <aside
         className={clsx(
-          "fixed inset-y-3 left-3 z-50 flex flex-col overflow-hidden rounded-[1.5rem] glass-panel transition-[width,transform] duration-300 ease-out lg:sticky lg:top-4 lg:z-auto lg:h-[calc(100vh-2rem)] lg:shrink-0 lg:translate-x-0",
+          "fixed inset-y-3 left-3 z-50 flex flex-col overflow-hidden rounded-[1.5rem] glass-panel transition-[width,transform] duration-300 ease-out lg:static lg:inset-auto lg:z-auto lg:h-full lg:max-h-full lg:shrink-0 lg:translate-x-0",
           // Mobile always full width drawer
           "w-[15.5rem]",
           // Desktop collapse → icon rail

@@ -43,6 +43,7 @@ import {
   type SidebarNavItem,
 } from "./components/layout/DashboardSidebar";
 import { DashboardBackground } from "./components/layout/DashboardBackground";
+import { ThemeToggleButton } from "./components/layout/ThemeToggleButton";
 import { LoginForm } from "./components/LoginForm";
 import { PlantWorkspaceSelector } from "./components/PlantWorkspaceSelector";
 import { PlantCatalogPanel } from "./components/plants/PlantCatalogPanel";
@@ -58,6 +59,7 @@ import { usePlantCatalog } from "./hooks/usePlantCatalog";
 import { usePlantEmployees } from "./hooks/usePlantEmployees";
 import { usePlantWorkspace } from "./hooks/usePlantWorkspace";
 import { useRegistrationQueue } from "./hooks/useRegistrationQueue";
+import { useDashboardTheme } from "./providers/ThemeProvider";
 
 function scopeLabel(
   session: AdminSession,
@@ -114,6 +116,7 @@ function tabSubtitle(tab: DashboardTab): string {
 }
 
 export function App() {
+  const { theme } = useDashboardTheme();
   const [activeTab, setActiveTab] = useState<DashboardTab>("review");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -289,8 +292,11 @@ export function App() {
 
   if (view === "bootstrap") {
     return (
-      <main className="grid min-h-screen place-items-center dashboard-ambient">
-        <DashboardBackground />
+      <main
+        className="grid min-h-screen place-items-center dashboard-ambient"
+        data-theme={theme}
+      >
+        {theme === "light" ? <DashboardBackground /> : null}
         <p className="dashboard-shell text-sm text-text-muted">Loading admin session…</p>
       </main>
     );
@@ -314,9 +320,9 @@ export function App() {
   const reviewNeedsPlant = !workspace.workspacePlantId;
 
   return (
-    <div className="dashboard-ambient min-h-screen">
-      <DashboardBackground />
-      <div className="dashboard-shell mx-auto flex min-h-screen max-w-[1600px] gap-4 p-3 lg:gap-5 lg:p-4 2xl:mx-0 2xl:max-w-none 2xl:w-full 2xl:gap-5 2xl:py-4 2xl:pl-3 2xl:pr-5">
+    <div className="dashboard-ambient h-dvh overflow-hidden" data-theme={theme}>
+      {theme === "light" ? <DashboardBackground /> : null}
+      <div className="dashboard-shell mx-auto flex h-full min-h-0 max-w-[1600px] gap-4 p-3 lg:gap-5 lg:p-4 2xl:mx-0 2xl:max-w-none 2xl:w-full 2xl:gap-5 2xl:py-4 2xl:pl-3 2xl:pr-5">
         <DashboardSidebar
           items={navItems}
           auditMenuOptions={auditMenuOptions}
@@ -330,8 +336,8 @@ export function App() {
           onSignOut={() => signOut()}
         />
 
-        <div className="flex min-w-0 flex-1 flex-col gap-4">
-          <header className="rounded-[1.35rem] glass-panel px-4 py-4 sm:px-5">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col gap-4 overflow-y-auto overscroll-contain">
+          <header className="shrink-0 rounded-[1.35rem] glass-panel px-4 py-4 sm:px-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="flex min-w-0 items-start gap-3">
                 <button
@@ -360,6 +366,7 @@ export function App() {
               </div>
 
               <div className="flex flex-wrap items-end gap-3">
+                <ThemeToggleButton />
                 {showWorkspaceSelector ? (
                   <PlantWorkspaceSelector
                     plants={workspace.plants}

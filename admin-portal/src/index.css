@@ -3,7 +3,7 @@
 @theme {
   --font-sans: "IBM Plex Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
 
-  /* Ascentia Labs — premium light glass dashboard */
+  /* Default = light glass (current) */
   --color-primary: #00aeef;
   --color-secondary: #eef5fc;
   --color-background: #f8fbff;
@@ -45,7 +45,7 @@
 }
 
 @layer utilities {
-  /* Enterprise glass — used by sidebar, header, and content shells */
+  /* ---- Light glass surfaces (default) ---- */
   .glass-panel {
     background: rgba(255, 255, 255, 0.68);
     border: 1px solid rgba(255, 255, 255, 0.82);
@@ -93,6 +93,7 @@
   .dashboard-shell {
     position: relative;
     z-index: 1;
+    min-height: 0;
   }
 
   .skeleton-shimmer {
@@ -104,6 +105,68 @@
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s ease-in-out infinite;
+  }
+
+  /* ---- Dark navy (pre–glass theme) ---- */
+  .dashboard-ambient[data-theme="dark"] {
+    color-scheme: dark;
+    --color-primary: #00aeef;
+    --color-secondary: #0b1f33;
+    --color-background: #050b14;
+    --color-surface: #0d1624;
+    --color-text: #ffffff;
+    --color-text-muted: #a7b0be;
+    --color-border: #1e2d42;
+    --color-brand-50: #e6f7fd;
+    --color-brand-100: #c5eefb;
+    --color-brand-600: #00aeef;
+    --color-brand-700: #0096cc;
+    --color-brand-800: #0078a3;
+    --color-ink: #ffffff;
+    background-color: #050b14;
+    background-image:
+      radial-gradient(
+        ellipse 70% 50% at 8% 0%,
+        rgba(0, 174, 239, 0.14),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 55% 45% at 100% 100%,
+        rgba(11, 31, 51, 0.9),
+        transparent 50%
+      );
+  }
+
+  .dashboard-ambient[data-theme="dark"] .glass-panel {
+    background: rgba(13, 22, 36, 0.92);
+    border: 1px solid rgba(0, 174, 239, 0.12);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.28),
+      0 18px 44px rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .dashboard-ambient[data-theme="dark"] .glass-panel-soft {
+    background: rgba(11, 31, 51, 0.72);
+    border: 1px solid rgba(167, 176, 190, 0.12);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .dashboard-ambient[data-theme="dark"] .brand-logo {
+    filter: invert(1) hue-rotate(180deg) brightness(1.12) contrast(1.05);
+  }
+
+  .dashboard-ambient[data-theme="dark"] .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(13, 22, 36, 0.9) 0%,
+      rgba(30, 45, 66, 0.95) 50%,
+      rgba(13, 22, 36, 0.9) 100%
+    );
+    background-size: 200% 100%;
   }
 
   @keyframes shimmer {

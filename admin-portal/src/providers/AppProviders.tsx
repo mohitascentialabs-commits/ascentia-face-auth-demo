@@ -3,6 +3,7 @@ import { useState, type ReactNode } from "react";
 
 import { ToastProvider } from "../components/toast/ToastProvider";
 import { createQueryClient } from "../lib/queryClient";
+import { ThemeProvider } from "./ThemeProvider";
 
 type AppProvidersProps = {
   children: ReactNode;
@@ -13,7 +14,9 @@ export function AppProviders({ children }: AppProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ToastProvider>{children}</ToastProvider>
+      <ThemeProvider>
+        <ToastProvider>{children}</ToastProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
